@@ -23,7 +23,7 @@ const SpiceMixDetails: React.FC<{ id: number; onBack: () => void }> = ({ id, onB
   const [details, setDetails] = useState<SpiceMix | null>(null);
 
   useEffect(() => {
-    fetch('/src/data/spiceMixes.json')
+    fetch('/data/spiceMixes.json')
       .then(res => res.json())
       .then((data: SpiceMix[]) => {
         const found = data.find(mix => mix.id === id);

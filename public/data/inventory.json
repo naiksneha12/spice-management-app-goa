@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Garam Masala", "quantity": 50 },
+  { "id": 2, "name": "Tandoori Mix", "quantity": 30 },
+  { "id": 3, "name": "Chaat Masala", "quantity": 20 }
+]

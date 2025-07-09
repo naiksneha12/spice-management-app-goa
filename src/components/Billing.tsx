@@ -21,7 +21,7 @@ const Billing: React.FC<{ onNewBill?: (bill: Bill) => void }> = ({ onNewBill }) 
   const [bills, setBills] = useState<Bill[]>([]);
 
   useEffect(() => {
-    fetch('/src/data/spiceMixes.json')
+    fetch('/data/spiceMixes.json')
       .then(res => res.json())
       .then((data: Omit<SpiceMix, 'price'>[]) => {
         setSpiceMixes(data.map((mix) => ({ ...mix, price: 120 + mix.id * 30 })));

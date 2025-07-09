@@ -11,7 +11,7 @@ const Inventory: React.FC<{ onSelect: (id: number) => void }> = ({ onSelect }) =
   const [spiceMixes, setSpiceMixes] = useState<InventoryItem[]>([]);
 
   useEffect(() => {
-    fetch('/src/data/inventory.json')
+    fetch('/data/inventory.json')
       .then((res) => res.json())
       .then((data) => setSpiceMixes(data));
   }, []);
