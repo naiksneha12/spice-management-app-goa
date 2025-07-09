@@ -1,0 +1,130 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.spice-details-bg {
+  width: 100vw;
+  min-height: 100vh;
+  background: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.spice-details-card {
+  width: 100%;
+  max-width: 700px;
+  margin-left: 32px;
+  margin-right: auto;
+  background: #f8f5f2;
+  box-shadow: 0 4px 24px 0 rgba(124, 74, 3, 0.08);
+  border-radius: 18px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+
+.spice-details-img-frame {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  background: #e7d3c6;
+}
+.spice-details-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  filter: brightness(0.95) contrast(1.05) saturate(1.1);
+  transition: filter 0.2s;
+}
+.spice-details-img-frame:hover .spice-details-img {
+  filter: brightness(1.05) contrast(1.15) saturate(1.2);
+}
+.spice-details-img-gradient {
+  position: absolute;
+  left: 0; right: 0; bottom: 0; height: 60px;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #f8f5f2 100%);
+  width: 100%;
+  pointer-events: none;
+}
+
+.spice-details-title {
+  color: #7c4a03;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-size: 22px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.spice-details-title-fancy {
+  color: #a67c52;
+  font-weight: 600;
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px #f5e6d3;
+}
+@media (min-width: 600px) {
+  .spice-details-title {
+    font-size: 28px;
+  }
+}
+
+.spice-details-subtitle {
+  color: #a67c52;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+@media (min-width: 600px) {
+  .spice-details-subtitle {
+    font-size: 18px;
+  }
+}
+
+.spice-details-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+}
+
+.spice-details-list-item {
+  color: #7c4a03;
+  padding-left: 0;
+  font-size: 15px;
+  width: 100%;
+  flex: 1 1 120px;
+  background: #fff;
+  border-radius: 6px;
+}
+@media (min-width: 600px) {
+  .spice-details-list-item {
+    font-size: 18px;
+    width: auto;
+  }
+}
+
+.spice-details-btn {
+  background: #a67c52;
+  margin-top: 16px;
+  width: 100%;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.spice-details-btn:hover {
+  background: #7c4a03;
+}

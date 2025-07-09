@@ -1,0 +1,125 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.dashboard-bg {
+  width: 100vw;
+  min-height: 100vh;
+  background: #fff;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.dashboard-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-left: 32px;
+  margin-top: 32px;
+  width: 100%;
+  max-width: 1100px;
+  justify-content: flex-start;
+}
+
+.dashboard-widget {
+  flex: 1 1 220px;
+  min-width: 180px;
+  background: #f8f5f2;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(124, 74, 3, 0.08);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+.dashboard-widget-title {
+  color: #a67c52;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.dashboard-widget-value {
+  color: #7c4a03;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.dashboard-card {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: 32px;
+  margin-right: auto;
+  background: #f8f5f2;
+  box-shadow: 0 4px 24px 0 rgba(124, 74, 3, 0.10);
+  border-radius: 18px;
+  padding: 32px 24px;
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dashboard-title {
+  color: #7c4a03;
+  font-weight: 800;
+  margin-bottom: 24px;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.dashboard-table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px 0 rgba(124, 74, 3, 0.06);
+}
+.dashboard-table th, .dashboard-table td {
+  padding: 14px 18px;
+  text-align: left;
+  color: #7c4a03;
+  font-size: 1.1rem;
+}
+.dashboard-table th {
+  background: #f5e6d3;
+  font-weight: 700;
+}
+.dashboard-table tr:nth-child(even) {
+  background: #f8f5f2;
+}
+
+@media (max-width: 900px) {
+  .dashboard-widgets {
+    flex-direction: column;
+    gap: 16px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dashboard-widget {
+    min-width: 0;
+    width: 100%;
+  }
+  .dashboard-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 700px) {
+  .dashboard-card {
+    padding: 16px 4px;
+  }
+  .dashboard-title {
+    font-size: 1.3rem;
+  }
+  .dashboard-table th, .dashboard-table td {
+    font-size: 0.95rem;
+    padding: 8px 6px;
+  }
+}
