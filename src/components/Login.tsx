@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import loginImage from '../assets/loginImage.avif';
+import loginImage from '../assets/LoginScreenImage.jpg';
 import './Login.css';
 
 // Hardcoded users

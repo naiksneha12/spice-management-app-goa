@@ -6,7 +6,7 @@ body, html, #root {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: linear-gradient(120deg, #f8f5f2 0%, #f5e6d3 100%);
+  background: linear-gradient(120deg, #181818 0%, #232526 100%);
 }
 
 #root {
@@ -20,10 +20,10 @@ body, html, #root {
 
 ::-webkit-scrollbar {
   width: 8px;
-  background: #f8f5f2;
+  background: #232526;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e7d3c6;
+  background: #333;
   border-radius: 8px;
 }
 
