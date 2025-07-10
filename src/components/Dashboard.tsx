@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Dashboard.css';
 import type { Bill } from './Billing';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-interface DashboardProps {
-  billHistory: Bill[];
-}
+interface MixSales { name: string; quantity: number; }
+interface SalesMonth { month: string; sales: number; }
 
-const Dashboard: React.FC<DashboardProps> = ({ billHistory }) => {
-  const salesData = [
-    { month: 'January', sales: 1200 },
-    { month: 'February', sales: 1500 },
-    { month: 'March', sales: 1100 },
-  ];
+const Dashboard: React.FC<{ billHistory: Bill[] }> = ({ billHistory }) => {
+  const [salesData, setSalesData] = useState<SalesMonth[]>([]);
+  const [mixSalesArr, setMixSalesArr] = useState<MixSales[]>([]);
+
+  useEffect(() => {
+    fetch('/data/sales.json')
+      .then(res => res.json())
+      .then(setSalesData);
+    fetch('/data/mixSales.json')
+      .then(res => res.json())
+      .then(setMixSalesArr);
+  }, []);
+
   const totalSales = salesData.reduce((sum, row) => sum + row.sales, 0);
-  const bestMonth = salesData.reduce((best, row) => row.sales > best.sales ? row : best, salesData[0]);
+  const bestMonth = salesData.reduce((best, row) => row.sales > best.sales ? row : best, salesData[0] || { month: '', sales: 0 });
+  const pieColors = ['#a1887f', '#6d4c41', '#d7ccc8'];
+
+  // Find best and poor seller
+  const bestSeller = mixSalesArr.reduce((best, curr) => curr.quantity > best.quantity ? curr : best, { name: '', quantity: 0 });
+  const poorSeller = mixSalesArr.reduce((poor, curr) => curr.quantity < poor.quantity ? curr : poor, { name: '', quantity: Infinity });
 
   // Filter today's bills
   const today = new Date().toLocaleDateString();
@@ -35,24 +47,39 @@ const Dashboard: React.FC<DashboardProps> = ({ billHistory }) => {
           <div className="dashboard-widget-value">{salesData.length}</div>
         </div>
       </div>
-      <div className="dashboard-card">
-        <div className="dashboard-title">Sales Dashboard</div>
-        <table className="dashboard-table">
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th>Total Sales (₹)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {salesData.map((row) => (
-              <tr key={row.month}>
-                <td>{row.month}</td>
-                <td>₹{row.sales}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="dashboard-card dashboard-charts-row">
+        <div style={{ width: 200, height: 200 }}>
+          <div className="dashboard-title" style={{ fontSize: '1.05rem', marginBottom: 6, whiteSpace: 'nowrap' }}>Sales Per Month</div>
+          <ResponsiveContainer width={200} height={200}>
+            <BarChart data={salesData} layout="vertical" margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
+              {/* Hide CartesianGrid */}
+              {/* <CartesianGrid strokeDasharray="3 3" stroke="#a1887f" /> */}
+              <XAxis type="number" stroke="#6d4c41" fontSize={10} axisLine={false} tickLine={false} />
+              <YAxis dataKey="month" type="category" stroke="#6d4c41" fontSize={10} width={60} axisLine={false} tickLine={false} />
+              <Tooltip wrapperStyle={{ fontSize: 10 }} />
+              <Legend wrapperStyle={{ fontSize: 10 }} iconSize={10} />
+              <Bar dataKey="sales" fill="#a1887f" barSize={24} radius={[4,4,4,4]} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div style={{ width: 200, height: 200 }}>
+          <div className="dashboard-title" style={{ fontSize: '1.05rem', marginBottom: 6, whiteSpace: 'nowrap' }}>Mix Best & Poor Seller</div>
+          <ResponsiveContainer width={200} height={200}>
+            <BarChart data={mixSalesArr} margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
+              {/* Hide CartesianGrid */}
+              {/* <CartesianGrid strokeDasharray="3 3" stroke="#a1887f" /> */}
+              <XAxis dataKey="name" stroke="#6d4c41" fontSize={10} interval={0} angle={-30} dy={10} height={40} axisLine={false} tickLine={false} />
+              <YAxis stroke="#6d4c41" fontSize={10} width={24} axisLine={false} tickLine={false} />
+              <Tooltip wrapperStyle={{ fontSize: 10 }} />
+              <Legend wrapperStyle={{ fontSize: 10 }} iconSize={10} />
+              <Bar dataKey="quantity" fill="#a1887f" barSize={24} radius={[4,4,0,0]} />
+            </BarChart>
+          </ResponsiveContainer>
+          <div style={{ fontSize: 11, marginTop: 4, color: '#6d4c41', textAlign: 'center' }}>
+            Best Seller: <b>{bestSeller.name || '-'}</b><br />
+            Poor Seller: <b>{poorSeller.name || '-'}</b>
+          </div>
+        </div>
       </div>
       <div className="dashboard-card" style={{ marginTop: 32 }}>
         <div className="dashboard-title">Today's Bill History</div>
