@@ -47,6 +47,7 @@ const navItems = [
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState<string | null>(null);
   const [view, setView] = useState<'dashboard' | 'inventory' | 'details' | 'billing'>('dashboard');
   const [selectedMixId, setSelectedMixId] = useState<number | null>(null);
   const [billHistory, setBillHistory] = useState<Bill[]>([]);
@@ -55,8 +56,18 @@ const App: React.FC = () => {
     setBillHistory(prev => [...prev, bill]);
   };
 
+  const handleLogin = (user: string) => {
+    setIsLoggedIn(true);
+    setCurrentUser(user);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+  };
+
   if (!isLoggedIn) {
-    return <Login onLogin={() => setIsLoggedIn(true)} />;
+    return <Login onLogin={handleLogin} />;
   }
 
   return (
@@ -115,8 +126,11 @@ const App: React.FC = () => {
               </ListItem>
             ))}
           </List>
-          <Box sx={{ width: '100%', p: 2, pb: 3, display: 'flex', justifyContent: 'center' }}>
-            <Button variant="outlined" color="secondary" sx={{ borderColor: '#a67c52', color: '#a67c52', fontWeight: 600, width: '100%' }} onClick={() => setIsLoggedIn(false)}>
+          <Box sx={{ width: '100%', p: 2, pb: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Typography variant="body2" sx={{ color: '#a67c52', mb: 1 }}>
+              User: <b>{currentUser}</b>
+            </Typography>
+            <Button variant="outlined" color="secondary" sx={{ borderColor: '#a67c52', color: '#a67c52', fontWeight: 600, width: '100%' }} onClick={handleLogout}>
               Logout
             </Button>
           </Box>

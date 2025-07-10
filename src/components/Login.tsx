@@ -2,14 +2,26 @@ import React, { useState } from 'react';
 import loginImage from '../assets/loginImage.avif';
 import './Login.css';
 
-const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
+// Hardcoded users
+const USERS = [
+  { username: 'admin', password: 'admin' },
+  { username: 'manager', password: 'manager' },
+  { username: 'staff', password: 'staff' },
+];
+
+const Login: React.FC<{ onLogin: (user: string) => void }> = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username && password) {
-      onLogin();
+    const found = USERS.find(u => u.username === username && u.password === password);
+    if (found) {
+      setError('');
+      onLogin(username);
+    } else {
+      setError('Invalid username or password');
     }
   };
 
@@ -25,6 +37,7 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             placeholder="Username"
             value={username}
             onChange={e => setUsername(e.target.value)}
+            autoComplete="username"
           />
           <input
             className="login-input"
@@ -32,8 +45,10 @@ const Login: React.FC<{ onLogin: () => void }> = ({ onLogin }) => {
             placeholder="Password"
             value={password}
             onChange={e => setPassword(e.target.value)}
+            autoComplete="current-password"
           />
           <button type="submit" className="login-btn">Login</button>
+          {error && <div className="login-error" style={{ color: 'red', marginTop: 8 }}>{error}</div>}
         </form>
       </div>
     </div>
