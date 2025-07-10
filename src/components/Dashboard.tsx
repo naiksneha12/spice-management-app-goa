@@ -21,7 +21,6 @@ const Dashboard: React.FC<{ billHistory: Bill[] }> = ({ billHistory }) => {
 
   const totalSales = salesData.reduce((sum, row) => sum + row.sales, 0);
   const bestMonth = salesData.reduce((best, row) => row.sales > best.sales ? row : best, salesData[0] || { month: '', sales: 0 });
-  const pieColors = ['#a1887f', '#6d4c41', '#d7ccc8'];
 
   // Find best and poor seller
   const bestSeller = mixSalesArr.reduce((best, curr) => curr.quantity > best.quantity ? curr : best, { name: '', quantity: 0 });
