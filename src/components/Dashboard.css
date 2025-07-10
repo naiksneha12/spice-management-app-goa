@@ -6,14 +6,19 @@ body, html {
 }
 
 .dashboard-bg {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background: linear-gradient(120deg, #f8f5f2 0%, #f5e6d3 100%);
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   overflow-x: hidden;
+}
+
+.dashboard-widgets, .dashboard-card {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .dashboard-widgets {
@@ -23,7 +28,7 @@ body, html {
   margin: 32px 0 0 0;
   width: 100%;
   max-width: 900px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .dashboard-widget {
