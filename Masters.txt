@@ -1,0 +1,63 @@
+Product master
+Fields:
+Product Code
+Product name
+Product Description
+Purchase rate
+Selling rate
+Mrp Rate
+Special rate
+Product Discount %
+GST %
+VAT %
+Product company
+Favourite Supplier
+HSN code
+Bar Code
+Lock product
+Credit Days
+
+Favourite supplier should be drop down from supplier master
+Supper master
+1. Supplier name
+2. ⁠Company ( Drop down from company master )
+3. ⁠Suppose phone
+4. ⁠supplier address
+5. ⁠Supplier GST
+6. ⁠Lock supplier ‎<This message was edited>
+
+Company master
+Company short name
+Company name
+Company lic.
+Company Suppliers ( Multiple drop down select )
+Company credit
+Lock company
+
+Customer master
+Customer id
+Customer name
+Customer address
+Customer phone
+Customer email
+Customer GST
+Customer Vat
+Customer Discount %
+Customer credit days
+Customer amount
+Lock billing
+Customer Package ( Multiple select )
+
+Create 1 Meun below dashboard as Masters
+
+And put all under it
+
+GST Master:
+GST % Name
+GST %
+Lock GST %
+
+VAT Master
+VAT % name
+VAT %
+Lock VAT %
