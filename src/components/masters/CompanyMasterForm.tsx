@@ -35,18 +35,18 @@ const CompanyMasterForm = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type, checked, multiple, options } = e.target as HTMLSelectElement;
-    if (multiple) {
+    const target = e.target;
+    const { name, value, type, multiple } = target;
+    if (type === 'checkbox' && 'checked' in target) {
+      setForm(prev => ({ ...prev, [name]: (target as HTMLInputElement).checked }));
+    } else if (multiple && target instanceof HTMLSelectElement) {
       const selected: string[] = [];
-      for (let i = 0; i < options.length; i++) {
-        if (options[i].selected) selected.push(options[i].value);
+      for (let i = 0; i < target.options.length; i++) {
+        if (target.options[i].selected) selected.push(target.options[i].value);
       }
       setForm(prev => ({ ...prev, [name]: selected }));
     } else {
-      setForm(prev => ({
-        ...prev,
-        [name]: type === 'checkbox' ? checked : value
-      }));
+      setForm(prev => ({ ...prev, [name]: value }));
     }
   };
 

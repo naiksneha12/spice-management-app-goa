@@ -51,11 +51,13 @@ const ProductMasterForm = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value, type, checked } = e.target;
-    setForm(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
+    const target = e.target;
+    const { name, value, type } = target;
+    if (type === 'checkbox' && 'checked' in target) {
+      setForm(prev => ({ ...prev, [name]: (target as HTMLInputElement).checked }));
+    } else {
+      setForm(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
