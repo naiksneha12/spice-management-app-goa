@@ -1,0 +1,10 @@
+[
+  {
+    "supplierName": "FreshSuppliers",
+    "company": "SpiceCo",
+    "supplierPhone": "9876543210",
+    "supplierAddress": "123 Market Road, Goa",
+    "supplierGST": "27ABCDE1234F1Z5",
+    "lockSupplier": false
+  }
+]

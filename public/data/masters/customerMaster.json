@@ -1,0 +1,16 @@
+[
+  {
+    "customerId": "C001",
+    "customerName": "John Doe",
+    "customerAddress": "456 Main Street, Goa",
+    "customerPhone": "9123456789",
+    "customerEmail": "john@example.com",
+    "customerGST": "27ABCDE1234F1Z5",
+    "customerVat": "VAT12345",
+    "customerDiscountPercent": 10,
+    "customerCreditDays": 15,
+    "customerAmount": 5000,
+    "lockBilling": false,
+    "customerPackage": ["Premium", "Bulk"]
+  }
+]

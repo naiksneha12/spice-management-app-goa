@@ -1,0 +1,10 @@
+[
+  {
+    "companyShortName": "SPC",
+    "companyName": "SpiceCo",
+    "companyLic": "LIC123456",
+    "companySuppliers": ["FreshSuppliers"],
+    "companyCredit": 60,
+    "lockCompany": false
+  }
+]

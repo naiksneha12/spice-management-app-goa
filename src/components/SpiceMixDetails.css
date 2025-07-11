@@ -60,7 +60,7 @@ body, html {
 }
 
 .spice-details-title {
-  color: #7c4a03;
+  color: #00796b;
   font-weight: 700;
   margin-bottom: 16px;
   font-size: 22px;
@@ -70,7 +70,7 @@ body, html {
   gap: 8px;
 }
 .spice-details-title-fancy {
-  color: #a67c52;
+  color: #085d54;
   font-weight: 600;
   font-size: 1.1em;
   letter-spacing: 2px;
@@ -83,7 +83,7 @@ body, html {
 }
 
 .spice-details-subtitle {
-  color: #a67c52;
+  color: #11725f;
   margin-bottom: 8px;
   font-size: 16px;
 }
@@ -101,7 +101,7 @@ body, html {
 }
 
 .spice-details-list-item {
-  color: #7c4a03;
+  color: #00796b;
   padding-left: 0;
   font-size: 15px;
   width: 100%;
@@ -117,7 +117,7 @@ body, html {
 }
 
 .spice-details-btn {
-  background: #a67c52;
+  background: #52a6a3;
   margin-top: 16px;
   width: 100%;
   color: #fff;
@@ -126,5 +126,9 @@ body, html {
   transition: background 0.2s;
 }
 .spice-details-btn:hover {
-  background: #7c4a03;
+  background: #037c72;
+}
+
+.spice-details-card {
+  background: #b2dfdb;
 }

@@ -1,0 +1,66 @@
+.masters-menu {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, #e8f6f3 0%, #b2dfdb 100%);
+  box-shadow: 0 4px 24px 0 rgba(60, 40, 10, 0.18);
+  color: #00796b;
+}
+.masters-menu h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #009688;
+}
+.masters-menu ul {
+  list-style: none;
+  padding: 0;
+}
+.masters-menu li {
+  margin: 1rem 0;
+  text-align: center;
+}
+.masters-menu a {
+  color: #00796b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.7rem;
+  background: linear-gradient(90deg, #b2dfdb 0%, #e8f6f3 100%);
+  transition: background 0.2s, color 0.2s;
+}
+.masters-menu a:hover {
+  background: linear-gradient(90deg, #e8f6f3 0%, #b2dfdb 100%);
+  color: #009688;
+}
+.masters-drawer {
+  background: #e8f6f3;
+  color: #00796b;
+  border-right: 2px solid #b2dfdb;
+  min-height: 100vh;
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.04);
+}
+.masters-drawer-title {
+  color: #009688;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.masters-drawer-btn {
+  background: linear-gradient(90deg, #009688 0%, #b2dfdb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.masters-drawer-btn:hover {
+  background: linear-gradient(90deg, #b2dfdb 0%, #009688 100%);
+  color: #00796b;
+}

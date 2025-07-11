@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Inventory from './components/Inventory';
 import SpiceMixDetails from './components/SpiceMixDetails';
 import Billing from './components/Billing';
+import MastersPage from './components/masters/MastersPage';
 import type { Bill } from './components/Billing';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Box, Drawer, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Typography, Button } from '@mui/material';
@@ -23,15 +24,15 @@ const theme = createTheme({
       paper: '#f8f5f2',
     },
     primary: {
-      main: '#e7d3c6', // lighter brown
-      contrastText: '#7c4a03',
+      main: '#d3eae2ff', // lighter brown
+      contrastText: '#03786eff',
     },
     secondary: {
-      main: '#a67c52',
+      main: '#147159ff',
     },
     text: {
-      primary: '#7c4a03',
-      secondary: '#a67c52',
+      primary: '#07706bff',
+      secondary: '#056248ff',
     },
   },
   typography: {
@@ -43,12 +44,13 @@ const navItems = [
   { label: 'Dashboard', icon: <DashboardIcon />, view: 'dashboard' },
   { label: 'Inventory', icon: <InventoryIcon />, view: 'inventory' },
   { label: 'Billing', icon: <ReceiptIcon />, view: 'billing' },
+  { label: 'Masters', icon: <SpaIcon />, view: 'masters' },
 ];
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState<string | null>(null);
-  const [view, setView] = useState<'dashboard' | 'inventory' | 'details' | 'billing'>('dashboard');
+  const [view, setView] = useState<'dashboard' | 'inventory' | 'details' | 'billing' | 'masters'>('dashboard');
   const [selectedMixId, setSelectedMixId] = useState<number | null>(null);
   const [billHistory, setBillHistory] = useState<Bill[]>([]);
 
@@ -65,6 +67,14 @@ const App: React.FC = () => {
     setIsLoggedIn(false);
     setCurrentUser(null);
   };
+
+  useEffect(() => {
+    const handler = (e: any) => {
+      if (e.detail === 'masters') setView('masters');
+    };
+    window.addEventListener('dashboard:navigate', handler);
+    return () => window.removeEventListener('dashboard:navigate', handler);
+  }, []);
 
   if (!isLoggedIn) {
     return <Login onLogin={handleLogin} />;
@@ -84,15 +94,15 @@ const App: React.FC = () => {
               boxSizing: 'border-box',
               bgcolor: 'background.paper',
               color: 'text.primary',
-              borderRight: '1px solid #e7d3c6',
+              borderRight: '1px solid #1fccafff',
               minHeight: '100vh',
             },
           }}
         >
           <Toolbar sx={{ justifyContent: 'center', bgcolor: 'primary.main', minHeight: 64 }}>
-            <SpaIcon sx={{ color: '#7c4a03', mr: 1 }} />
-            <Typography variant="h6" sx={{ color: '#7c4a03', fontWeight: 700 }}>
-              Spice Manager
+            <SpaIcon sx={{ color: '#19bc8eff', mr: 1 }} />
+            <Typography variant="h6" sx={{ color: '#075751ff', fontWeight: 700 }}>
+              Welcome
             </Typography>
           </Toolbar>
           <List sx={{ p: 0, flex: 1 }}>
@@ -107,8 +117,8 @@ const App: React.FC = () => {
                   component="button"
                   onClick={() => setView(item.view as typeof view)}
                   style={{
-                    background: view === item.view ? '#e7d3c6' : 'transparent',
-                    color: view === item.view ? '#7c4a03' : '#7c4a03',
+                    background: view === item.view ? '#d2f6f7ff' : 'transparent',
+                    color: view === item.view ? '#1fb698ff' : '#037c56ff',
                     border: 'none',
                     width: '100%',
                     textAlign: 'left',
@@ -120,17 +130,17 @@ const App: React.FC = () => {
                     fontSize: 18,
                   }}
                 >
-                  <ListItemIcon sx={{ color: '#7c4a03', minWidth: 36 }}>{item.icon}</ListItemIcon>
+                  <ListItemIcon sx={{ color: '#066547ff', minWidth: 36 }}>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.label} />
                 </Box>
               </ListItem>
             ))}
           </List>
           <Box sx={{ width: '100%', p: 2, pb: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography variant="body2" sx={{ color: '#a67c52', mb: 1 }}>
+            <Typography variant="body2" sx={{ color: '#00684cff', mb: 1 }}>
               User: <b>{currentUser}</b>
             </Typography>
-            <Button variant="outlined" color="secondary" sx={{ borderColor: '#a67c52', color: '#a67c52', fontWeight: 600, width: '100%' }} onClick={handleLogout}>
+            <Button variant="outlined" color="secondary" sx={{ borderColor: '#45a393ff', color: '#52a6a0ff', fontWeight: 600, width: '100%' }} onClick={handleLogout}>
               Logout
             </Button>
           </Box>
@@ -150,6 +160,7 @@ const App: React.FC = () => {
               <SpiceMixDetails id={selectedMixId} onBack={() => setView('inventory')} />
             )}
             {view === 'billing' && <Billing onNewBill={handleNewBill} />}
+            {view === 'masters' && <MastersPage />}
           </Box>
         </Box>
       </Box>

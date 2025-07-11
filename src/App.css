@@ -6,7 +6,7 @@ body, html, #root {
   min-height: 100vh;
   overflow-x: hidden;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: linear-gradient(120deg, #181818 0%, #232526 100%);
+  background: linear-gradient(120deg, #e8f6f3 0%, #f8fbf8 100%);
 }
 
 #root {
@@ -60,5 +60,38 @@ body, html, #root {
 }
 
 .read-the-docs {
-  color: #888;
+  color: #fbf2f2;
+}
+
+.css-g1zmsy-MuiDrawer-docked .MuiDrawer-paper {
+  background: #e8f6f3 !important;
+  color: #00796b !important;
+  border-right: 2px solid #b2dfdb !important;
+  box-shadow: 2px 0 8px 0 rgba(0,0,0,0.04) !important;
+}
+
+.css-3a2b3n-MuiListItemIcon-root {
+  color: #009688 !important;
+  background: #e8f6f3 !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+}
+.css-3a2b3n-MuiListItemIcon-root button,
+.css-3a2b3n-MuiListItemIcon-root .MuiButtonBase-root {
+  background: linear-gradient(90deg, #009688 0%, #b2dfdb 100%) !important;
+  color: #fff !important;
+  border-radius: 8px !important;
+  transition: background 0.2s, color 0.2s;
+}
+.css-3a2b3n-MuiListItemIcon-root button:hover,
+.css-3a2b3n-MuiListItemIcon-root .MuiButtonBase-root:hover {
+  background: linear-gradient(90deg, #b2dfdb 0%, #009688 100%) !important;
+  color: #00796b !important;
+}
+
+.css-93ywc7-MuiPaper-root-MuiAppBar-root {
+  background: linear-gradient(90deg, #e8f6f3 0%, #b2dfdb 100%) !important;
+  color: #00796b !important;
+  box-shadow: none !important;
+  border-radius: 0 0 18px 18px !important;
 }

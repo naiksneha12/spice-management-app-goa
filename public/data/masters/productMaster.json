@@ -1,0 +1,20 @@
+[
+  {
+    "productCode": "P001",
+    "productName": "Chili Powder",
+    "productDescription": "Finely ground red chili powder.",
+    "purchaseRate": 80,
+    "sellingRate": 100,
+    "mrpRate": 120,
+    "specialRate": 95,
+    "productDiscountPercent": 5,
+    "gstPercent": 5,
+    "vatPercent": 0,
+    "productCompany": "SpiceCo",
+    "favouriteSupplier": "FreshSuppliers",
+    "hsnCode": "0904",
+    "barCode": "1234567890123",
+    "lockProduct": false,
+    "creditDays": 30
+  }
+]

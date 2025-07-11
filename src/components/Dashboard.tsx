@@ -107,6 +107,18 @@ const Dashboard: React.FC<{ billHistory: Bill[] }> = ({ billHistory }) => {
           </tbody>
         </table>
       </div>
+      <nav className="dashboard-menu">
+        {/* ...existing menu items... */}
+        <div className="dashboard-menu-item">
+          <span
+            className="dashboard-menu-link"
+            style={{ cursor: 'pointer', color: 'inherit', font: 'inherit', padding: 0 }}
+            onClick={() => window.dispatchEvent(new CustomEvent('dashboard:navigate', { detail: 'masters' }))}
+          >
+            Masters
+          </span>
+        </div>
+      </nav>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .billing-bg {
   width: 100vw;
   min-height: 100vh;
-  background: #fff;
+  background: linear-gradient(120deg, #e8f6f3 0%, #f8fbf8 100%);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 }
 
 .billing-title {
-  color: #7c4a03;
+  color: #009688;
   font-weight: 800;
   margin-bottom: 24px;
   font-size: 2rem;
@@ -36,7 +36,7 @@
   width: 100%;
   padding: 12px 10px;
   border-radius: 6px;
-  border: 1px solid #a67c52;
+  border: 1px solid #b2dfdb;
   margin-bottom: 16px;
   font-size: 1.1rem;
   color: #7c4a03;
@@ -44,7 +44,7 @@
 }
 
 .billing-btn {
-  background: #a67c52;
+  background: linear-gradient(90deg, #009688 0%, #b2dfdb 100%);
   color: #fff;
   font-weight: 600;
   border-radius: 6px;
@@ -55,7 +55,8 @@
   margin-bottom: 18px;
 }
 .billing-btn:hover {
-  background: #7c4a03;
+  background: linear-gradient(90deg, #b2dfdb 0%, #009688 100%);
+  color: #00796b;
 }
 
 .billing-list {
@@ -67,6 +68,35 @@
   color: #7c4a03;
   font-size: 1.1rem;
   margin-bottom: 8px;
+}
+.billing-table {
+  background: #fff;
+  color: #00796b;
+  border: 1.5px solid #b2dfdb;
+}
+.billing-table th {
+  background: #b2dfdb;
+  color: #00796b;
+}
+.billing-table td {
+  background: #e8f6f3;
+  color: #00796b;
+}
+.billing-drawer {
+  background: #e8f6f3;
+  color: #00796b;
+  border-right: 2px solid #b2dfdb;
+}
+.billing-drawer-title {
+  color: #009688;
+}
+.billing-drawer-btn {
+  background: linear-gradient(90deg, #009688 0%, #b2dfdb 100%);
+  color: #fff;
+}
+.billing-drawer-btn:hover {
+  background: linear-gradient(90deg, #b2dfdb 0%, #009688 100%);
+  color: #00796b;
 }
 @media (max-width: 700px) {
   .billing-card {

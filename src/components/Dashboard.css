@@ -8,7 +8,7 @@ body, html {
 .dashboard-bg {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(120deg, #f8f5f2 0%, #f5e6d3 100%);
+  background: linear-gradient(120deg, #e8f6f3 0%, #f8fbf8 100%);
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ body, html {
   flex: 1 1 220px;
   min-width: 180px;
   max-width: 260px;
-  background: linear-gradient(120deg, #fff 60%, #f8f5f2 100%);
+  background: linear-gradient(120deg, #fff 60%, #e8f6f3 100%);
   border-radius: 18px;
   box-shadow: 0 6px 24px 0 rgba(124, 74, 3, 0.13);
   padding: 24px 16px;
@@ -43,22 +43,22 @@ body, html {
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 8px;
-  border: 1.5px solid #e7d3c6;
+  border: 1.5px solid #b2dfdb;
   transition: box-shadow 0.2s;
 }
 .dashboard-widget:hover {
-  box-shadow: 0 12px 32px 0 rgba(124, 74, 3, 0.18);
+  box-shadow: 0 12px 32px 0 rgba(33, 191, 159, 0.18);
 }
 
 .dashboard-widget-title {
-  color: #a67c52;
+  color: #009688;
   font-size: 1.15rem;
   font-weight: 800;
   margin-bottom: 10px;
   letter-spacing: 0.5px;
 }
 .dashboard-widget-value {
-  color: #7c4a03;
+  color: #00796b;
   font-size: 2.2rem;
   font-weight: 900;
   text-shadow: 0 2px 8px #e7d3c6;
@@ -75,17 +75,17 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  border: 1.5px solid #e7d3c6;
+  border: 1.5px solid #b2dfdb;
 }
 
 .dashboard-title {
-  color: #7c4a03;
+  color: #009688;
   font-weight: 900;
   margin-bottom: 24px;
   font-size: 2rem;
   letter-spacing: 1.2px;
   text-align: left;
-  text-shadow: 0 2px 8px #e7d3c6;
+  text-shadow: none;
 }
 
 .dashboard-table {
@@ -98,11 +98,11 @@ body, html {
 .dashboard-table th, .dashboard-table td {
   padding: 12px 10px;
   text-align: left;
-  color: #7c4a03;
+  color: #00796b;
   font-size: 1rem;
 }
 .dashboard-table th {
-  background: #f5e6d3;
+  background: #e8f6f3;
   font-weight: 800;
 }
 .dashboard-table tr:nth-child(even) {
