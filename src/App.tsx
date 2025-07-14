@@ -5,6 +5,8 @@ import Inventory from './components/Inventory';
 import SpiceMixDetails from './components/SpiceMixDetails';
 import Billing from './components/Billing';
 import MastersPage from './components/masters/MastersPage';
+import ReportsPage from './components/ReportsPage';
+import SettingsPage from './components/SettingsPage';
 import type { Bill } from './components/Billing';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, Box, Drawer, List, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, Typography, Button } from '@mui/material';
@@ -12,6 +14,9 @@ import SpaIcon from '@mui/icons-material/Spa';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import StorageIcon from '@mui/icons-material/Storage';
 import './App.css';
 
 const drawerWidth = 220;
@@ -43,14 +48,16 @@ const theme = createTheme({
 const navItems = [
   { label: 'Dashboard', icon: <DashboardIcon />, view: 'dashboard' },
   { label: 'Inventory', icon: <InventoryIcon />, view: 'inventory' },
-  { label: 'Billing', icon: <ReceiptIcon />, view: 'billing' },
-  { label: 'Masters', icon: <SpaIcon />, view: 'masters' },
+  { label: 'Accounting', icon: <ReceiptIcon />, view: 'billing' },
+  { label: 'Masters', icon: <StorageIcon />, view: 'masters' },
+  { label: 'Reports', icon: <AssessmentIcon />, view: 'reports' },
+  { label: 'Settings', icon: <SettingsApplicationsIcon />, view: 'settings' },
 ];
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState<string | null>(null);
-  const [view, setView] = useState<'dashboard' | 'inventory' | 'details' | 'billing' | 'masters'>('dashboard');
+  const [view, setView] = useState<'dashboard' | 'inventory' | 'details' | 'billing' | 'masters' | 'reports' | 'settings'>('dashboard');
   const [selectedMixId, setSelectedMixId] = useState<number | null>(null);
   const [billHistory, setBillHistory] = useState<Bill[]>([]);
 
@@ -161,6 +168,8 @@ const App: React.FC = () => {
             )}
             {view === 'billing' && <Billing onNewBill={handleNewBill} />}
             {view === 'masters' && <MastersPage />}
+            {view === 'reports' && <ReportsPage />}
+            {view === 'settings' && <SettingsPage />}
           </Box>
         </Box>
       </Box>

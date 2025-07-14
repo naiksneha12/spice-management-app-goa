@@ -1,0 +1,14 @@
+{
+  "dateSettings": {
+    "currentDate": "2025-07-14",
+    "allowDateChange": true
+  },
+  "billSettings": {
+    "billPrefix": "SPC",
+    "autoNumber": true
+  },
+  "userSettings": [
+    { "username": "admin", "role": "Admin" },
+    { "username": "manager", "role": "Manager" }
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  { "vatid": "VAT01", "vatPercentName": "Standard VAT", "vatPercent": 12.5, "lockVat": false },
+  { "vatid": "VAT02", "vatPercentName": "Reduced VAT", "vatPercent": 4, "lockVat": false },
+  { "vatid": "VAT03", "vatPercentName": "Zero VAT", "vatPercent": 0, "lockVat": true }
+]

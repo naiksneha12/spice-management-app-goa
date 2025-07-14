@@ -7,6 +7,8 @@ const menuItems = [
   { key: 'customer', label: 'Customer Master' },
   { key: 'product-category', label: 'Product Category Master' },
   { key: 'customer-package', label: 'Customer Package Master' },
+  { key: 'gst', label: 'GST Master' },
+  { key: 'vat', label: 'VAT Master' },
 ];
 
 const MastersMenu = ({ selected, onSelect }: { selected: string; onSelect: (key: string) => void }) => (

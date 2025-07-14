@@ -1,0 +1,5 @@
+[
+  { "gstid": "GST01", "gstPercentName": "Standard GST", "gstPercent": 18, "lockGst": false },
+  { "gstid": "GST02", "gstPercentName": "Reduced GST", "gstPercent": 5, "lockGst": false },
+  { "gstid": "GST03", "gstPercentName": "Zero GST", "gstPercent": 0, "lockGst": true }
+]

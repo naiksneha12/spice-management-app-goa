@@ -6,6 +6,9 @@ import CompanyMasterForm from './CompanyMasterForm';
 import CustomerMasterForm from './CustomerMasterForm';
 import ProductCategoryMasterForm from './ProductCategoryMasterForm';
 import CustomerPackageMasterForm from './CustomerPackageMasterForm';
+
+import GstMasterForm from './GstMasterForm';
+import VatMasterForm from './VatMasterForm';
 import './MastersPage.css';
 
 const masterList = [
@@ -15,6 +18,8 @@ const masterList = [
   { key: 'customer', label: 'Customer Master', component: <CustomerMasterForm /> },
   { key: 'product-category', label: 'Product Category Master', component: <ProductCategoryMasterForm /> },
   { key: 'customer-package', label: 'Customer Package Master', component: <CustomerPackageMasterForm /> },
+  { key: 'gst', label: 'GST Master', component: <GstMasterForm /> },
+  { key: 'vat', label: 'VAT Master', component: <VatMasterForm /> },
 ];
 
 function MastersPage() {
