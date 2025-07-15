@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Box, Button, TextField, Switch, FormControlLabel, Paper, Divider, MenuItem, Snackbar, Alert } from '@mui/material';
+import { Typography, Box, Button, TextField, Switch, FormControlLabel, Paper, Divider, Snackbar, Alert } from '@mui/material';
 
 interface SettingsData {
   dateSettings: { currentDate: string; allowDateChange: boolean };
