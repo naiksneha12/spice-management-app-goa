@@ -53,11 +53,11 @@ const Dashboard: React.FC<{ billHistory: Bill[] }> = ({ billHistory }) => {
             <BarChart data={salesData} layout="vertical" margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
               {/* Hide CartesianGrid */}
               {/* <CartesianGrid strokeDasharray="3 3" stroke="#a1887f" /> */}
-              <XAxis type="number" stroke="#6d4c41" fontSize={10} axisLine={false} tickLine={false} />
-              <YAxis dataKey="month" type="category" stroke="#6d4c41" fontSize={10} width={60} axisLine={false} tickLine={false} />
+              <XAxis type="number" stroke="#058177ff" fontSize={10} axisLine={false} tickLine={false} />
+              <YAxis dataKey="month" type="category" stroke="#058177ff" fontSize={10} width={60} axisLine={false} tickLine={false} />
               <Tooltip wrapperStyle={{ fontSize: 10 }} />
               <Legend wrapperStyle={{ fontSize: 10 }} iconSize={10} />
-              <Bar dataKey="sales" fill="#a1887f" barSize={24} radius={[4,4,4,4]} />
+              <Bar dataKey="sales" fill="#058177ff" barSize={24} radius={[4,4,4,4]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -67,14 +67,14 @@ const Dashboard: React.FC<{ billHistory: Bill[] }> = ({ billHistory }) => {
             <BarChart data={mixSalesArr} margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
               {/* Hide CartesianGrid */}
               {/* <CartesianGrid strokeDasharray="3 3" stroke="#a1887f" /> */}
-              <XAxis dataKey="name" stroke="#6d4c41" fontSize={10} interval={0} angle={-30} dy={10} height={40} axisLine={false} tickLine={false} />
-              <YAxis stroke="#6d4c41" fontSize={10} width={24} axisLine={false} tickLine={false} />
+              <XAxis dataKey="name" stroke="#058177ff" fontSize={10} interval={0} angle={-30} dy={10} height={40} axisLine={false} tickLine={false} />
+              <YAxis stroke="#058177ff" fontSize={10} width={24} axisLine={false} tickLine={false} />
               <Tooltip wrapperStyle={{ fontSize: 10 }} />
               <Legend wrapperStyle={{ fontSize: 10 }} iconSize={10} />
-              <Bar dataKey="quantity" fill="#a1887f" barSize={24} radius={[4,4,0,0]} />
+              <Bar dataKey="quantity" fill="#058177ff" barSize={24} radius={[4,4,0,0]} />
             </BarChart>
           </ResponsiveContainer>
-          <div style={{ fontSize: 11, marginTop: 4, color: '#6d4c41', textAlign: 'center' }}>
+          <div style={{ fontSize: 11, marginTop: 4, color: '#058177ff', textAlign: 'center' }}>
             Best Seller: <b>{bestSeller.name || '-'}</b><br />
             Poor Seller: <b>{poorSeller.name || '-'}</b>
           </div>

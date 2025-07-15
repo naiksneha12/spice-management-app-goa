@@ -42,7 +42,7 @@ const ReportsPage: React.FC = () => {
   return (
     <div style={{ padding: 32 }}>
       <Typography variant="h5" sx={{ color: '#009688', mb: 2 }}>Reports</Typography>
-      <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+      <Box sx={{ display: 'flex', gap: 2, mb: 3 , }}>
         <Button 
           variant={section === 'sales' ? 'contained' : 'outlined'} 
           onClick={() => setSection('sales')}
